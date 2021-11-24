@@ -20,7 +20,7 @@ public class RESTMovie {
     public ResponseEntity<Movie> createMovie(@RequestBody Movie movie){
 
         movieRepository.save(movie);
-
+//Balder er dum?
         return new ResponseEntity<>(movie, HttpStatus.CREATED);
     }
 }
