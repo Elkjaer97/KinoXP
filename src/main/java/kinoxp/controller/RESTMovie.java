@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/movie")
@@ -20,7 +22,19 @@ public class RESTMovie {
     public ResponseEntity<Movie> createMovie(@RequestBody Movie movie){
 
         movieRepository.save(movie);
-//Balder er dum?
+
         return new ResponseEntity<>(movie, HttpStatus.CREATED);
     }
+
+
+    @GetMapping("/get")
+    public List<Movie> displayMovies(){
+
+
+        return movieRepository.findAll();
+    }
+
+
+
+
 }
