@@ -34,6 +34,15 @@ public class RESTMovie {
         return movieRepository.findAll();
     }
 
+    @DeleteMapping("/delete/{movieId}")
+    public ResponseEntity<Movie> deleteMovie(@PathVariable int movieId)  {
+
+        movieRepository.deleteById(movieId);
+
+
+        return ResponseEntity.ok().build();
+    }
+
 
 
 
