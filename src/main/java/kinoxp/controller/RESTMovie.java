@@ -1,6 +1,7 @@
 package kinoxp.controller;
 
 
+import aj.org.objectweb.asm.ConstantDynamic;
 import kinoxp.model.Movie;
 import kinoxp.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -32,6 +34,27 @@ public class RESTMovie {
 
         return movieRepository.findAll();
     }
+
+
+    @PutMapping("/update/{movieId}")
+    public ResponseEntity<Movie> updateMovie(@PathVariable int movieId, @RequestBody Movie updatedMovie ){
+
+        Optional<Movie> optionalObj = movieRepository.findById(movieId);
+
+        Movie myObj = optionalObj.get();
+
+
+        myObj.setName(updatedMovie.getName());
+        myObj.setDescription(updatedMovie.getDescription());
+        myObj.setPlayTime(updatedMovie.getPlayTime());
+        myObj.setActors(updatedMovie.getActors());
+        myObj.setAgeReq(updatedMovie.getAgeReq());
+        myObj.setGenre(updatedMovie.getGenre());
+
+        return new ResponseEntity<>(myObj, HttpStatus.OK);
+    }
+
+
 
     @DeleteMapping("/delete/{movieId}")
     public ResponseEntity<Movie> deleteMovie(@PathVariable int movieId)  {
