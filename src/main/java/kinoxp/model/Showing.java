@@ -1,5 +1,7 @@
 package kinoxp.model;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -42,5 +44,13 @@ public class Showing {
 
     public void setTheater(int theater) {
         Theater = theater;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 }

@@ -1,6 +1,10 @@
 package kinoxp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Movie {
@@ -15,9 +19,12 @@ public class Movie {
     private String actors;
     private int ageReq;
     private String genre;
-
-
-
+/*
+    @OneToMany
+    @JoinColumn(name = "showing_id")
+    @JsonBackReference
+    private Set<Movie> movies = new HashSet<>();
+*/
     public Movie() {
     }
 
@@ -76,5 +83,13 @@ public class Movie {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+/*
+    public Set<Movie> getMovies() {
+        return movies;
+    }
 
+    public void setMovies(Set<Movie> movies) {
+        this.movies = movies;
+    }
+ */
 }
