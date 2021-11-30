@@ -1,10 +1,6 @@
 package kinoxp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Objects;
+import javax.persistence.*;
 
 @Entity
 public class Movie {
@@ -19,6 +15,8 @@ public class Movie {
     private String actors;
     private int ageReq;
     private String genre;
+
+
 
     public Movie() {
     }

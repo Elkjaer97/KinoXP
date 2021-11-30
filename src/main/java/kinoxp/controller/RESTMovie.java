@@ -18,7 +18,7 @@ public class RESTMovie {
     @Autowired
     MovieRepository movieRepository;
 
-    @PostMapping(value="/save", consumes = "application/json")
+        @PostMapping(value="/save", consumes = "application/json")
     public ResponseEntity<Movie> createMovie(@RequestBody Movie movie){
 
         movieRepository.save(movie);
@@ -29,7 +29,6 @@ public class RESTMovie {
 
     @GetMapping("/get")
     public List<Movie> displayMovies(){
-
 
         return movieRepository.findAll();
     }
