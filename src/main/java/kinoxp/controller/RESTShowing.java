@@ -21,7 +21,7 @@ public class RESTShowing {
 
     @PostMapping(value="/save", consumes = "application/json")
     public ResponseEntity<Showing> createShowing(@RequestBody Showing showing){
-
+        System.out.println(showing.getMovie());
         showingRepository.save(showing);
 
         return new ResponseEntity<>(showing, HttpStatus.CREATED);

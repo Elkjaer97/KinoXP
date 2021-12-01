@@ -17,7 +17,7 @@ public class Showing {
 
     @ManyToOne
     @JoinColumn(name = "movie_id")
-    private Movie movieId;
+    private Movie movie;
 
     public Showing() {
     }
@@ -46,11 +46,13 @@ public class Showing {
         Theater = theater;
     }
 
-    public Movie getMovieId() {
-        return movieId;
+    public Movie getMovie() {
+        return movie;
     }
 
-    public void setMovieId(Movie movieId) {
-        this.movieId = movieId;
+    public void setMovieId(Movie movie) {
+        this.movie = movie;
     }
+    
+
 }

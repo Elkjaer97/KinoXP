@@ -19,12 +19,12 @@ public class Movie {
     private String actors;
     private int ageReq;
     private String genre;
-/*
+
     @OneToMany
-    @JoinColumn(name = "showing_id")
+    @JoinColumn(name = "movie_id")
     @JsonBackReference
-    private Set<Movie> movies = new HashSet<>();
-*/
+    private Set<Showing> showings = new HashSet<>();
+
     public Movie() {
     }
 
@@ -83,13 +83,12 @@ public class Movie {
     public void setGenre(String genre) {
         this.genre = genre;
     }
-/*
-    public Set<Movie> getMovies() {
-        return movies;
+
+    public Set<Showing> getShowings() {
+        return showings;
     }
 
-    public void setMovies(Set<Movie> movies) {
-        this.movies = movies;
+    public void setShowings(Set<Showing> showings) {
+        this.showings = showings;
     }
- */
 }
