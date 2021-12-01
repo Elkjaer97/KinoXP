@@ -51,6 +51,9 @@ public class RESTMovie {
         myObj.setAgeReq(updatedMovie.getAgeReq());
         myObj.setGenre(updatedMovie.getGenre());
 
+
+        myObj = movieRepository.save(myObj);
+
         return new ResponseEntity<>(myObj, HttpStatus.OK);
     }
 
