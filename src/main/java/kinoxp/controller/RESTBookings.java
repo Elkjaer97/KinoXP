@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -41,4 +42,33 @@ public class RESTBookings {
 
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping("/update/{bookingId}")
+    public ResponseEntity<Booking> updateBooking(@PathVariable int bookingId, @RequestBody Booking updatedBooking){
+
+        Optional<Booking> optionalObj = bookingRepository.findById(bookingId);
+
+        Booking myBookObj = optionalObj.get();
+
+        myBookObj.setCustomerEmail(updatedBooking.getCustomerEmail());
+        myBookObj.setCustomerNumber(updatedBooking.getCustomerNumber());
+        myBookObj.setCustomerMovie(updatedBooking.getCustomerMovie());
+
+        myBookObj = bookingRepository.save(myBookObj);
+
+        return new ResponseEntity<>(myBookObj, HttpStatus.OK);
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
 }

@@ -1,9 +1,13 @@
 package kinoxp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Showing {
@@ -18,6 +22,32 @@ public class Showing {
     @ManyToOne
     @JoinColumn(name = "movie_id")
     private Movie movie;
+
+    @OneToMany
+    @JoinColumn(name = "showing_id")
+    @JsonBackReference
+    private Set<Booking> bookings = new HashSet<>();
+
+
+
+
+
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+
+
+
 
     public Showing() {
     }
