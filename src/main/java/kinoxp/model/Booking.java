@@ -15,7 +15,7 @@ public class Booking {
 
     private String customerEmail;
     private String customerNumber;
-    private String customerMovie;
+
 
 
     public Showing getShowing() {
@@ -49,13 +49,7 @@ public class Booking {
     public void setCustomerNumber(String cusNumber) {
         this.customerNumber = cusNumber;
     }
-    public String getCustomerMovie() {
-        return customerMovie;
-    }
 
-    public void setCustomerMovie(String cusMovie) {
-        this.customerMovie = cusMovie;
-    }
 
     public Booking() {
     }

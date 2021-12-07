@@ -52,7 +52,6 @@ public class RESTBookings {
 
         myBookObj.setCustomerEmail(updatedBooking.getCustomerEmail());
         myBookObj.setCustomerNumber(updatedBooking.getCustomerNumber());
-        myBookObj.setCustomerMovie(updatedBooking.getCustomerMovie());
 
         myBookObj = bookingRepository.save(myBookObj);
 
