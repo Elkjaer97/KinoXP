@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/show-book")
+@RequestMapping("/booking")
 public class RESTBookings {
 
     @Autowired
