@@ -14,7 +14,7 @@ public class Movie {
     private int movieId;
     private String name;
     private String description;
-    private String playTime;
+    private int playTime;
     private String actors;
     private int ageReq;
     private String genre;
@@ -51,11 +51,11 @@ public class Movie {
         this.description = description;
     }
 
-    public String getPlayTime() {
+    public int getPlayTime() {
         return playTime;
     }
 
-    public void setPlayTime(String playTime) {
+    public void setPlayTime(int playTime) {
         this.playTime = playTime;
     }
 

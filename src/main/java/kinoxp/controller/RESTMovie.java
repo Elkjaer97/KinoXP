@@ -1,7 +1,6 @@
 package kinoxp.controller;
 
 
-import aj.org.objectweb.asm.ConstantDynamic;
 import kinoxp.model.Movie;
 import kinoxp.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
