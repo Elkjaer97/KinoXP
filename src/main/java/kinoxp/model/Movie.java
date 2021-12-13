@@ -56,7 +56,7 @@ public class Movie {
     }
 
     public void setPlayTime(int playTime) {
-        this.playTime = playTime;
+            this.playTime = playTime;
     }
 
     public String getActors() {
