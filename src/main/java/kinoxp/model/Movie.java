@@ -6,12 +6,15 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+//@Entity defines this class as a table in the database -- Via JPA
 @Entity
 public class Movie {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int movieId;
+    @Id //Declares that THIS is the primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //@GeneratedValue declares that THIS will auto-generate AND GenerationType.IDENTITY declares that THIS will auto-increment
+    private int movieId; //The @Id and @GenerationValue is applied to this variable
+
+    //Other columns in the table
     private String name;
     private String description;
     private int playTime;
@@ -20,11 +23,14 @@ public class Movie {
     private String genre;
     private int price;
 
-    @OneToMany
-    @JoinColumn(name = "movie_id")
-    @JsonBackReference
-    private Set<Showing> showings = new HashSet<>();
+    //Connection via foreign-key to another table
+    @OneToMany //Declares the kind of connection to another table
+    @JoinColumn(name = "movie_id") //Declares which key the foreign-key is connected to
+    @JsonBackReference //Is needed for a "bidirectional-relationship" between two tables
+    private Set<Showing> showings = new HashSet<>(); //This column is defined as a collection, since it can have many of them
 
+
+    //Constructor, Getters, Setters -- Needed for the framework to function probably
     public Movie() {
     }
 
