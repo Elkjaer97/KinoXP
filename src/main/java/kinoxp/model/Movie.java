@@ -18,6 +18,7 @@ public class Movie {
     private String actors;
     private int ageReq;
     private String genre;
+    private int price;
 
     @OneToMany
     @JoinColumn(name = "movie_id")
@@ -27,13 +28,14 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(String name, String description, int playTime, String actors, int ageReq, String genre) {
+    public Movie(String name, String description, int playTime, String actors, int ageReq, String genre, int price) {
         this.name = name;
         this.description = description;
         this.playTime = playTime;
         this.actors = actors;
         this.ageReq = ageReq;
         this.genre = genre;
+        this.price=price;
     }
 
     public int getMovieId() {
@@ -98,5 +100,13 @@ public class Movie {
 
     public void setShowings(Set<Showing> showings) {
         this.showings = showings;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
