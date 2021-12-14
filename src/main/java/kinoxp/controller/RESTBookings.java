@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/booking   ")
+@RequestMapping("/booking")
 public class RESTBookings {
 
     @Autowired
@@ -20,7 +20,7 @@ public class RESTBookings {
 
     @PostMapping(value = "/save", consumes = "application/json")
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
-
+        System.out.println(booking.getShowing());
         bookingRepository.save(booking);
 
         return new ResponseEntity<>(booking, HttpStatus.CREATED);
@@ -33,6 +33,11 @@ public class RESTBookings {
 
         return bookingRepository.findAll();
     }
+
+    /*@GetMapping("/inspect/{id}")
+    public Optional<Booking> inspectBooking(@PathVariable int id){
+        return bookingRepository.findById(id);
+    }*/
 
     @DeleteMapping("/delete/{bookingId}")
     public ResponseEntity<Booking> deleteBooking(@PathVariable int bookingId) {
@@ -52,6 +57,7 @@ public class RESTBookings {
 
         myBookObj.setCustomerEmail(updatedBooking.getCustomerEmail());
         myBookObj.setCustomerNumber(updatedBooking.getCustomerNumber());
+        myBookObj.setBookId(updatedBooking.getBookId());
 
         myBookObj = bookingRepository.save(myBookObj);
 

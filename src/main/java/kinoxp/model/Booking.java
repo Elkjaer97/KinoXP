@@ -1,5 +1,7 @@
 package kinoxp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,7 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "showing_id")
+    //@JsonBackReference
     private Showing showing;
 
 
